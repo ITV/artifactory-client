@@ -52,6 +52,8 @@ module Artifactory
         .map { |e| e.capitalize }
         .join
 
+      result = fix_odd_camels(result)
+
       if lowercase
         result[0, 1].downcase + result[1..-1]
       else
@@ -151,6 +153,15 @@ module Artifactory
 
     def numeric?(string)
       string.to_i.to_s == string || string.to_f.to_s == string
+    end
+
+    def fix_odd_camels(string)
+      case(string)
+      when 'DisableUiAccess'
+        'DisableUIAccess'
+      else
+        string
+      end
     end
   end
 end

@@ -74,6 +74,7 @@ module Artifactory
     attribute :password # write only, never returned
     attribute :profile_updatable, true
     attribute :realm
+    attribute :disable_ui_access, false
 
     #
     # Delete this user from artifactory, suppressing any +ResourceNotFound+
